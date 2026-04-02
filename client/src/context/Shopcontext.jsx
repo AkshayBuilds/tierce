@@ -1,10 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-export const ShopContext = createContext()
 import axios from "axios";
 
-const ShpoContextProvider = (props) => {
+export const ShopContext = createContext()
+
+const ShopContextProvider = (props) => {
 
     const navigate = useNavigate()
 
@@ -115,7 +116,7 @@ const ShpoContextProvider = (props) => {
                 toast.error("Failed to fetch products:", response.data.message)
             }
         } catch (error) {
-            className.error("Error fetching products:", error)
+            console.error("Error fetching products:", error)
             toast.error("An error occurred while fetching products.")
         }
     }
@@ -159,4 +160,4 @@ const ShpoContextProvider = (props) => {
     )
 }
 
-export default ShpoContextProvider
+export default ShopContextProvider
