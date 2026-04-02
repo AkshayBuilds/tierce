@@ -12,12 +12,26 @@ import orderRouter from './Routes/orderRoute.js';
 
 const app = express()
 const PORT = process.env.PORT || 3000
+const allowedOrigins = [
+  "https://forever-kappa-seven.vercel.app",
+  "https://forever-admin-gray-delta.vercel.app"
+];
 connect_db()
 connect_cloudinary()
 // middleware
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
+app.options("*", cors());
 
 // endPoints
 
