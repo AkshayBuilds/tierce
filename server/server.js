@@ -19,13 +19,30 @@ connect_cloudinary()
 
 app.use(express.json())
 
+const allowedOrigins = [
+  "https://forever-admin-gray-delta.vercel.app",
+  "https://forever-kappa-seven.vercel.app"
+];
+
 app.use(cors({
-  origin: [
-      "https://forever-admin-gray-delta.vercel.app",
-    "https://forever-kappa-seven.vercel.app"
-  ],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
-}))
+}));
+
+app.options("*", cors());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 // endPoints
 
 app.use('/user', userRouter)
