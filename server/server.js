@@ -21,8 +21,8 @@ app.use(express.json())
 
 app.use(cors({
   origin: [
-    "https://forever-kappa-seven.vercel.app",
-    "https://forever-admin-gray-delta.vercel.app"
+      "https://forever-admin-gray-delta.vercel.app",
+    "https://forever-kappa-seven.vercel.app"
   ],
   credentials: true
 }))
