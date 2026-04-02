@@ -20,9 +20,12 @@ connect_cloudinary()
 app.use(express.json())
 
 app.use(cors({
-  origin: "https://forever-admin-gray-delta.vercel.app"
+  origin: [
+    "https://forever-kappa-seven.vercel.app",
+    "https://forever-admin-gray-delta.vercel.app"
+  ],
+  credentials: true
 }))
-
 // endPoints
 
 app.use('/user', userRouter)
