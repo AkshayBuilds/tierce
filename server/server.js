@@ -21,10 +21,7 @@ app.use(express.json())
 
 app.use(cors({
   origin: [
-    "https://forever-admin-gray-delta.vercel.app",
-    "https://forever-kappa-seven.vercel.app",
-    "http://localhost:5173",
-    "http://localhost:3000"
+    "https://forever-admin-gray-delta.vercel.app"
   ],
   credentials: true,
   methods: "GET,POST,PUT,DELETE,OPTIONS",
