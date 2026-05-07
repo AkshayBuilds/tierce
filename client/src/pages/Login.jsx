@@ -54,11 +54,11 @@ const Login = () => {
   return (
     <form
       onSubmit={submitFormHandler}
-      className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800"
+      className="flex flex-col items-center w-[90%] sm:max-w-md m-auto mt-14 gap-4 text-[#1a1a2e]"
     >
       <div className="inline-flex items-center gap-2 mb-2 mt-10">
         <p className="prata-regular text-3xl">{currantState}</p>
-        <hr className="border-none h-[1.5px] w-8 text-gray-800" />
+        <hr className="border-none h-[1.5px] w-8 bg-[#e8a87c]" />
       </div>
       {currantState === "Log In" ? (
         ""
@@ -66,7 +66,7 @@ const Login = () => {
         <input
           onChange={(e) => setname(e.target.value)}
           type="text"
-          className="w-full px-3 py-2 border border-gray-800"
+          className="w-full px-4 py-3 border border-[#e5e1db] rounded-lg bg-white text-sm focus:border-[#e8a87c]"
           placeholder="Name"
           required
         />
@@ -74,29 +74,29 @@ const Login = () => {
       <input
         onChange={(e) => setemail(e.target.value)}
         type="email"
-        className="w-full px-3 py-2 border border-gray-800"
+        className="w-full px-4 py-3 border border-[#e5e1db] rounded-lg bg-white text-sm focus:border-[#e8a87c]"
         placeholder="Email"
         required
       />
       <input
         onChange={(e) => setpassword(e.target.value)}
         type="password"
-        className="w-full px-3 py-2 border border-gray-800"
+        className="w-full px-4 py-3 border border-[#e5e1db] rounded-lg bg-white text-sm focus:border-[#e8a87c]"
         placeholder="Password"
         required
       />
       <div className="w-full flex justify-between text-sm mt-2">
-        <p className="cursor-pointer">Forgot your password</p>
+        <p className="cursor-pointer text-gray-400 hover:text-[#e8a87c] transition-colors">Forgot your password?</p>
         {currantState === "Log In" ? (
           <p
-            className="cursor-pointer"
+            className="cursor-pointer text-[#e8a87c] hover:text-[#d4956a] font-medium transition-colors"
             onClick={() => setcurrantState("Sign Up")}
           >
             Create Account
           </p>
         ) : (
           <p
-            className="cursor-pointer"
+            className="cursor-pointer text-[#e8a87c] hover:text-[#d4956a] font-medium transition-colors"
             onClick={() => setcurrantState("Log In")}
           >
             Login Here
@@ -105,9 +105,9 @@ const Login = () => {
       </div>
       <button
         type="submit"
-        className="text-white cursor-pointer bg-black font-light px-8 py-2 mt-4"
+        className="text-white cursor-pointer bg-[#1a1a2e] hover:bg-[#e8a87c] font-medium px-10 py-3 mt-4 rounded-lg transition-colors tracking-wider text-sm"
       >
-        {currantState === "Log In" ? "Sign In" : "Sign Up"}
+        {currantState === "Log In" ? "SIGN IN" : "SIGN UP"}
       </button>
     </form>
   );

@@ -1,36 +1,35 @@
 import React from 'react'
-import { assets } from '../assets/frontend_assets/assets'
 
 const Footer = () => {
   return (
     <div className=''>
         <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 mt-40 text-sm py-5'>
             <div>
-                <img src={assets.logo} className='mb-5 w-32' alt="" />
-                <p className='w-full md:w-2/3 text-gray-600'>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione eius cupiditate id eaque. Tempora fugiat, tenetur illo porro id ratione possimus ab voluptatum iure repudiandae eligendi deleniti non assumenda omnis?
+                <h2 className='prata-regular text-2xl text-[#1a1a2e] mb-5'>TIERCE</h2>
+                <p className='w-full md:w-2/3 text-gray-500 leading-relaxed'>
+                Tierce is your destination for premium fashion and lifestyle products. We curate the finest collections from around the world, bringing you quality, style, and unmatched elegance at your fingertips.
                 </p>
             </div>
             <div>
-                <p className='text-xl font-medium mb-5'>COMPANY</p>
-                <ul className='flex flex-col gap-1 text-gray-600'>
-                    <li>Home</li>
-                    <li>About us</li>
-                    <li>Delivery</li>
-                    <li>Private Policy</li>
+                <p className='text-base font-semibold mb-5 text-[#1a1a2e] uppercase tracking-wider'>Company</p>
+                <ul className='flex flex-col gap-2 text-gray-500'>
+                    <li className='hover:text-[#e8a87c] cursor-pointer transition-colors'>Home</li>
+                    <li className='hover:text-[#e8a87c] cursor-pointer transition-colors'>About us</li>
+                    <li className='hover:text-[#e8a87c] cursor-pointer transition-colors'>Delivery</li>
+                    <li className='hover:text-[#e8a87c] cursor-pointer transition-colors'>Privacy Policy</li>
                 </ul>
             </div>
             <div>
-                <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
-                <ul className='flex flex-col gap-1 text-gray-600'>
+                <p className='text-base font-semibold mb-5 text-[#1a1a2e] uppercase tracking-wider'>Get in Touch</p>
+                <ul className='flex flex-col gap-2 text-gray-500'>
                     <li>+91 931-684-7190</li>
-                    <li>akshay.dev307@gmail.com</li>
+                    <li>support@tierce.in</li>
                 </ul>
             </div>
         </div>
         <div>
-            <hr className='text-gray-200'/>
-            <p className='py-5 text-sm text-center'>Copyright 2026&copy; forever.com - All Rights Reserved
+            <hr className='border-[#e5e1db]'/>
+            <p className='py-5 text-sm text-center text-gray-400'>Copyright 2026&copy; Tierce — All Rights Reserved
             </p>
         </div>
     </div>

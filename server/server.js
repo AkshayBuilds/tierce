@@ -6,7 +6,6 @@ import connect_cloudinary from './config/coudinary.js';
 import userRouter from './Routes/userRoute.js';
 import productRouter from './Routes/productRoute.js';
 import cartRouter from './Routes/cartRoute.js';
-import orderRouter from './Routes/orderRoute.js';
 
 // app config
 
@@ -21,10 +20,8 @@ app.use(express.json())
 
 app.use(cors({
   origin: [
-    "https://forever-admin-gray-delta.vercel.app",
-    "https://forever-kappa-seven.vercel.app",
     "http://localhost:5173",
-    "http://localhost:5173"
+    "http://localhost:5174",
   ],
   credentials: true,
   methods: "GET,POST,PUT,DELETE,OPTIONS",
@@ -35,10 +32,9 @@ app.use(cors({
 app.use('/user', userRouter)
 app.use('/product', productRouter)
 app.use('/cart', cartRouter)
-app.use('/order', orderRouter)
 
-app.get('/', (req,res) => {
-    res.send('API WORKING')
-} )
+app.get('/', (req, res) => {
+  res.send('API WORKING')
+})
 
-app.listen(PORT, ()=> console.log(`Server Running on Port: ${PORT}`))
+app.listen(PORT, () => console.log(`Server Running on Port: ${PORT}`))

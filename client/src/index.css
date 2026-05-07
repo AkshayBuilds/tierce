@@ -1,27 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
-a.active hr{
-  display: block;
-}
-*{
-  font-family: outfit;
+/* ===== ROOT DESIGN TOKENS ===== */
+:root {
+  --color-primary: #1a1a2e;
+  --color-accent: #e8a87c;
+  --color-accent-dark: #d4956a;
+  --color-bg: #fafaf8;
+  --color-bg-warm: #f5f0eb;
+  --color-text: #1a1a2e;
+  --color-text-muted: #6b7280;
+  --color-text-light: #9ca3af;
+  --color-border: #e5e1db;
+  --color-card: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(26, 26, 46, 0.06);
+  --shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+  --shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.1);
+  --radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ===== GLOBAL RESETS ===== */
+* {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
 
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== TYPOGRAPHY ===== */
 .prata-regular {
-  font-family: "Prata", serif;
-  font-weight: 400;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
   font-style: normal;
 }
 
-::-webkit-scrollbar{
-  display: none;
+/* ===== ACTIVE NAV LINK UNDERLINE ===== */
+a.active hr {
+  display: block;
 }
 
-@media (max-width: 640px){
-  a.active{
-    background-color: black;
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #c4bfb6;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a39e96;
+}
+
+/* ===== MOBILE NAV ACTIVE STATE ===== */
+@media (max-width: 640px) {
+  a.active {
+    background-color: var(--color-primary);
     color: white;
   }
+}
+
+/* ===== SMOOTH TRANSITIONS FOR INTERACTIVE ELEMENTS ===== */
+button, a, input, select {
+  transition: var(--transition);
+}
+
+/* ===== SELECTION COLOR ===== */
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* ===== CUSTOM FOCUS STYLES ===== */
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
 }
