@@ -50,6 +50,11 @@ npm install
 npm start
 ```
 
+-live on : https://tierce-ecom.vercel.app/
+-Admin Panel: https://tierce-admin.vercel.app/
+Admin Email: a@gmail.com
+Admin password: aaaaaaaa
+
 ## Notes
 
 - Run the server before using the client or admin app so API requests can succeed.
@@ -60,8 +65,4 @@ npm start
 
 This repository does not include a license file. Add one if you want to define reuse terms.
 
-live on : https://tierce-ecom.vercel.app/
-Admin Panel: https://tierce-admin.vercel.app/
-admin Email or pass
-a@gmail.com
-aaaaaaaa
+
