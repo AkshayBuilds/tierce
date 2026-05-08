@@ -5,7 +5,7 @@ import ProductItem from './ProductItem'
 
 const LatestCollection = () => {
     const [latestproduct, setlatestproduct] = useState([])
-    const { products } = useContext(ShopContext)
+    const { products, loadingProducts } = useContext(ShopContext)
 
     useEffect(() => {
         setlatestproduct(products.slice(0, 10))
@@ -29,15 +29,25 @@ const LatestCollection = () => {
 
             {/* Product Grid */}
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-8'>
-                {latestproduct.map((item, index) => (
-                    <ProductItem
-                        key={index}
-                        id={item._id}
-                        image={item.image}
-                        name={item.name}
-                        price={item.price}
-                    />
-                ))}
+                {loadingProducts ? (
+                    [...Array(5)].map((_, index) => (
+                        <div key={index} className='animate-pulse rounded-lg bg-white p-3 border border-[#e2e8f0]'>
+                            <div className='h-40 rounded-xl bg-[#e2e8f0]' />
+                            <div className='mt-3 h-4 rounded bg-[#e2e8f0]' />
+                            <div className='mt-2 h-4 w-1/2 rounded bg-[#e2e8f0]' />
+                        </div>
+                    ))
+                ) : (
+                    latestproduct.map((item, index) => (
+                        <ProductItem
+                            key={index}
+                            id={item._id}
+                            image={item.image}
+                            name={item.name}
+                            price={item.price}
+                        />
+                    ))
+                )}
             </div>
 
             {/* View All Button */}
