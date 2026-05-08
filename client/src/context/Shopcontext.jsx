@@ -81,7 +81,20 @@ const ShopContextProvider = (props) => {
 
     const updateQuantity = async(id, size, quantity) =>{
         let cartdata = structuredClone(cartItems);
-        cartdata[id][size] = q
+
+        if (!cartdata[id]) {
+            return
+        }
+
+        if (quantity <= 0) {
+            delete cartdata[id][size]
+            if (Object.keys(cartdata[id]).length === 0) {
+                delete cartdata[id]
+            }
+        } else {
+            cartdata[id][size] = quantity
+        }
+
         localStorage.setItem('cartItems', JSON.stringify(cartdata))
         setcartItems(cartdata)
 
@@ -89,7 +102,7 @@ const ShopContextProvider = (props) => {
             try {
                 await axios.post(backend_URL+'/cart/update',{itemId: id, size, quantity},{headers:{token}})
             } catch (error) {
-             toast.error(error.messgae)   
+                toast.error(error.messgae)
             }
         }
 
