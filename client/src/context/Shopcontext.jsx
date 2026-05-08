@@ -19,6 +19,7 @@ const ShopContextProvider = (props) => {
         return savedCart ? JSON.parse(savedCart) : {};
     })
     const [products, setproducts] = useState([])
+    const [loadingProducts, setloadingProducts] = useState(true)
     const [token, settoken] = useState('')
 
     const addtoCart = async(id, size) =>{
