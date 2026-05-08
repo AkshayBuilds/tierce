@@ -45,7 +45,19 @@ const updateCart = async(req,res) =>{
         const user = await userModel.findById(userId)
         let cartData = await user.cartData
 
-        cartData[itemId][size] = quantity
+        if (quantity <= 0) {
+            if (cartData[itemId]) {
+                delete cartData[itemId][size]
+                if (Object.keys(cartData[itemId]).length === 0) {
+                    delete cartData[itemId]
+                }
+            }
+        } else {
+            if (!cartData[itemId]) {
+                cartData[itemId] = {}
+            }
+            cartData[itemId][size] = quantity
+        }
 
         await userModel.findByIdAndUpdate(userId, {cartData})
 
