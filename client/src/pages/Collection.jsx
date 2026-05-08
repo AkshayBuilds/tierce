@@ -4,7 +4,7 @@ import { assets } from '../assets/frontend_assets/assets'
 import ProductItem from '../components/ProductItem'
 
 const Collection = () => {
-  const { products, search, showSearch } = useContext(ShopContext)
+  const { products, search, showSearch, loadingProducts } = useContext(ShopContext)
   const [filterProducts, setfilterProducts] = useState([])
   const [category, setcategory] = useState([])
   const [subCategory, setsubCategory] = useState([])
@@ -178,7 +178,17 @@ const Collection = () => {
 
         {/* Product Grid */}
         <div className='flex-1'>
-          {filterProducts.length === 0 ? (
+          {loadingProducts ? (
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+              {[...Array(8)].map((_, index) => (
+                <div key={index} className='animate-pulse rounded-lg bg-white p-4 border border-[#e2e8f0]'>
+                  <div className='h-52 rounded-xl bg-[#e2e8f0]' />
+                  <div className='mt-4 h-4 w-3/4 rounded bg-[#e2e8f0]' />
+                  <div className='mt-2 h-4 w-1/2 rounded bg-[#e2e8f0]' />
+                </div>
+              ))}
+            </div>
+          ) : filterProducts.length === 0 ? (
             <div className='flex flex-col items-center justify-center py-32 bg-white rounded-2xl border border-[#e2e8f0]'>
               <div className='w-14 h-14 bg-[#f1f5f9] rounded-full flex items-center justify-center mb-4'>
                 <svg className='w-6 h-6 text-[#94a3b8]' fill="none" viewBox="0 0 24 24" stroke="currentColor">
